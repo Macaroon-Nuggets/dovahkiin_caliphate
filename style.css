@@ -186,6 +186,7 @@ body {
 .stat-link:focus-visible {
   text-decoration: underline;
   outline: none;
+  color: var(--magenta)
 }
 
 .flag-wrap {
