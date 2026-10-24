@@ -29,22 +29,25 @@
 
 html {
   background: var(--black);
+  overflow-x: auto;
 }
 
 body {
   margin: 0;
+  min-width: 1134px;
   min-height: 100vh;
   background: var(--black);
   color: var(--white);
   padding: 10px 12px 20px;
-  overflow-x: hidden;
+  overflow-x: visible;
   font-family: 'Determination Sans';
 }
 
 .page-shell {
   position: relative;
-  width: 100%;
-  max-width: var(--shell-max);
+  width: 1110px;
+  min-width: 1110px;
+  max-width: none;
   margin: 0 auto;
 }
 
@@ -85,7 +88,7 @@ body {
   margin: 0;
   color: var(--yellow);
   font-family: 'Determination Mono', 'Determination Sans', monospace;
-  font-size: clamp(34px, 4.65vw, 61px);
+  font-size: 61px;
   font-weight: 700;
   letter-spacing: 0.02em;
   line-height: 1.18;
@@ -112,7 +115,7 @@ body {
   text-decoration: none;
   border-right: var(--border) solid var(--white);
   font-family: 'Determination Mono', 'Determination Sans', monospace;
-  font-size: clamp(18px, 2.05vw, 28px);
+  font-size: 28px;
   font-weight: 700;
   letter-spacing: 0.02em;
   line-height: 1;
@@ -159,7 +162,7 @@ body {
 .stat-label,
 .stat-value {
   font-family: 'Determination Mono', 'Determination Sans', monospace;
-  font-size: clamp(15px, 1.4vw, 21px);
+  font-size: 21px;
   font-weight: 700;
   line-height: 1.05;
 }
@@ -208,8 +211,8 @@ body {
 
 .section-title {
   color: var(--white);
-  font-family: 'Determination Sans', Arial, sans-serif;
-  font-size: clamp(18px, 1.75vw, 25px);
+  font-family: 'Determination Sans', sans-serif;
+  font-size: 25px;
   font-weight: 700;
   line-height: 1.1;
   margin: 0 0 3px;
@@ -218,8 +221,8 @@ body {
 
 .body-text {
   color: var(--white);
-  font-family: 'Determination Sans', Arial, sans-serif;
-  font-size: clamp(15px, 1.55vw, 22px);
+  font-family: 'Determination Sans', sans-serif;
+  font-size: 22px;
   font-weight: 700;
   line-height: 1.23;
 }
@@ -235,8 +238,8 @@ body {
   padding-right: 3px;
   color: var(--yellow);
   text-align: right;
-  font-family: 'Determination Sans', Arial, sans-serif;
-  font-size: clamp(18px, 1.9vw, 27px);
+  font-family: 'Determination Sans', sans-serif;
+  font-size: 27px;
   font-weight: 700;
   line-height: 1;
 }
@@ -244,104 +247,16 @@ body {
 .page-content h2 {
   color: var(--yellow);
   margin: 0 0 16px;
-  font-family: 'Determination Sans', Arial, sans-serif;
-  font-size: clamp(22px, 2.3vw, 32px);
+  font-family: 'Determination Sans', sans-serif;
+  font-size: 32px;
 }
 
 .page-content p,
 .page-content li {
-  font-family: 'Determination Sans', Arial, sans-serif;
-  font-size: clamp(15px, 1.55vw, 22px);
+  font-family: 'Determination Sans', sans-serif;
+  font-size: 22px;
   line-height: 1.25;
   font-weight: 700;
 }
 
 .page-content ul { margin-top: 6px; }
-
-@media (max-width: 900px) {
-  .header { margin: 0 42px; }
-  .symbol-column { width: 34px; }
-  .symbol-column.left { left: -4px; }
-  .symbol-column.right { right: -4px; }
-  .stats {
-    grid-template-columns: minmax(175px, 1fr) minmax(245px, 290px) minmax(175px, 1fr);
-    column-gap: 10px;
-  }
-  .body-text { font-size: clamp(14px, 1.7vw, 19px); }
-}
-
-@media (max-width: 700px) {
-  body { padding: 8px; }
-
-  .symbol-column { display: none; }
-
-  .header {
-    margin: 0;
-    min-height: 138px;
-    padding: 14px 10px;
-  }
-
-  .title {
-    font-size: clamp(25px, 8vw, 42px);
-    line-height: 1.12;
-  }
-
-  .tabs {
-    grid-template-columns: 1fr;
-    border-top-width: var(--border);
-  }
-
-  .tabs a {
-    min-height: 50px;
-    border-right: 0;
-    border-bottom: var(--border) solid var(--white);
-  }
-
-  .tabs a:last-child { border-bottom: 0; }
-
-  .panel { margin-top: 24px; }
-
-  .stats {
-    grid-template-columns: 1fr;
-    row-gap: 12px;
-    min-height: 0;
-  }
-
-  .flag-wrap {
-    grid-column: 1;
-    grid-row: 1;
-    max-width: 330px;
-    margin-bottom: 2px;
-  }
-
-  .stat-list {
-    min-height: 0;
-    display: grid;
-    grid-template-rows: none;
-    gap: 9px;
-  }
-
-  .stat-label,
-  .stat-value {
-    text-align: left;
-    padding: 0;
-  }
-
-  .stat-label::after { content: ':'; }
-  .stat-label { display: inline; }
-  .stat-list.labels { display: block; }
-  .stat-list.labels > div,
-  .stat-list.values > div { margin-bottom: 8px; }
-
-  .stats .stat-list.labels + .flag-wrap + .stat-list.values {
-    display: block;
-  }
-
-  .page-content { padding-top: 26px; }
-}
-
-@media (max-width: 430px) {
-  .panel { padding: 12px 9px; }
-  .body-text { font-size: 14px; }
-  .section-title { font-size: 17px; }
-}
